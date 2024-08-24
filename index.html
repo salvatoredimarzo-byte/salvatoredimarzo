@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            font-family: poppins, sans-serif;
+        }
+        nav {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 10%;
+            width: 100%;
+            padding: 24px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .navbar {
+                display: flex;
+                padding: 8px;
+                background-color: #2c2c2c;
+                box-shadow: 0 0 16px 0 #111;
+                border-radius: 10px;
+                box-shadow: 0 0 20px 5px rgba(0,0,255,10);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .container {
+                display: flex;
+                justify-content: space-around;
+                width: 100%;
+                list-style: none;
+        }
+        .item {
+             display: flex;
+             position: relative;
+             padding: 20px;
+        }
+        .item.active .item-icon {
+            margin-top: -26px;
+            box-shadow: 0px 0px 15px #10cdfb;
+            border: 2px solid #10cdfb;
+        }
+        .item.active .item-text {
+            transform: scale(1);
+        }
+        .item-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #10cdfb;
+            text-decoration: none;
+        }
+        .item-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6em;
+            background-color: #1e1e1e;
+            border-radius: 50%;
+            height: 46px;
+            width: 46px;
+            transition: margin-top 250ms ease-in-out, box-shadow 250ms ease-in-out;
+        }
+        .item-text {
+            position: absolute;
+            bottom: 0;
+            transform: scale(0);
+            transition: transform 250ms ease-in-out;
+        }
+        #my-img{
+            position: relative;
+            width: 300px;   
+        }
+        #my-img.alternative{
+            position: absolute;
+            top: 50px;
+            left: 100px;
+            width: 300px;
+            height: auto;
+        }       
+        h1{   
+            font-family: 'Dancing Script', cursive;      
+            position: absolute;
+            top: 200px;
+            left: 50%;
+            transform: translate(-50%);
+            width:80%;
+            height: auto;
+            color:aliceblue;
+            z-index: 3;
+            font-size: 5vw;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+            text-align: center;
+        }
+        h2{
+            font-family: 'Courier New', Courier, monospace,cursive;
+            position: absolute;
+            top:390px;
+            left:50%;
+            width:80%;
+            height:auto;
+            transform: translate(-50%);
+            color: aliceblue;
+            z-index: 3;
+            font-size: 3vw;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+            text-align: left;
+        }
+        #phrase-info{
+            font-family: Cambria, Cochin, Georgia, serif,cursive;
+            position: absolute;
+            top:320px;
+            left:50%;
+            transform: translate(-50%);
+            color:aliceblue;
+            z-index: 3;
+            font-size: 3vw;
+            text-align: center;
+        }
+        #email{
+            font-family: 'Times New Roman', Times, serif;
+            position: absolute;
+            top:360px;
+            left:50%;
+            transform: translate(-50%);
+            color:aliceblue;
+            z-index: 3;
+            font-size: 3vw;
+            text-align: center;
+        }
+        #img-cyber{
+            position: relative;
+            width: 300px;
+            top:90px;
+            left:20%;
+            background-color: #2c2c2c;
+            box-shadow: 0 0 16px 0 #111;
+            border-radius: 10px;
+            box-shadow: 0 0 20px 5px rgba(0,0,255,20);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        #img-mask{
+            position: relative;
+            width: 100px;
+            top:80px;
+            left:auto;
+            background-color: black;
+            box-shadow: 0 0 16px 0 #111;
+            border-radius:10px;
+            box-shadow: 0 0 20px 5px rgba(0,0,0,1);
+            border: 1px solid rgba(0,0,0,1);
+        }
+        #byte{
+            font-family: cursive;
+            position: absolute;
+            top:430px;
+            left: 50%;
+            width: 80%;
+            transform: translate(-50%);
+            color: aliceblue;
+            z-index: 3;
+            font-size: 3vw;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+            text-align: center;
+        }
+        #one{
+            font-family: Arial, Helvetica, sans-serif,cursive;
+            position: absolute;
+            top:410px;
+            left:45%;
+            width:80%;
+            font-size: 2vw;
+            text-align: left;
+        }
+        #dos{
+            font-family: Arial, Helvetica, sans-serif,cursive;
+            position: absolute;
+            top:335px;
+            left:50%;
+            width: 80%;
+            font-size: 2vw;
+            text-align: right;
+        }
+        #tres{
+            font-family: Arial, Helvetica, sans-serif,cursive;
+            position: absolute;
+            top:200px;
+            left:50%;
+            width:80%;
+            font-size: 2vw;
+            text-align: left;
+        }
+        #quatro{
+            font-family: Arial, Helvetica, sans-serif,cursive;
+            position: absolute;
+            top:50px;
+            left:50%;
+            width:80%;
+            font-size: 2vw;
+            text-align: right;
+        }
+        #one-1{
+            font-family: cursive;
+            position: absolute;
+            top:440px;
+            left:50%;
+            width:80%;
+            font-size: 2vw;
+            text-align: left;
+        }
+        #tres-1{
+            font-family: cursive;
+            position: absolute;
+            top:228px;
+            left:50%;
+            width:80%;
+            font-size: 2vw;
+            text-align: left;
+        }
+        #quatro-1{
+            font-family: cursive;
+            position: absolute;
+            top:95px;
+            left:50%;
+            width:80%;
+            font-size: 2.5vw;
+            text-align: right;
+        }
+     </style>
+</head>
+<body style="background-color: black; ">     
+    <nav>   
+        <div class="navbar">
+            <ul class="container">
+                <li class="item active">
+                    <a href="#" class="item-link" onclick="changeContent('home')">
+                        <div class="item-icon">
+                            <ion-icon name="home-outline"></ion-icon>
+                        </div>
+                        <span class="item-text">HOME</span>
+                    </a>
+                </li>
+                <li class="item">
+                    <a href="#" class="item-link" onclick="changeContent('profile')">
+                        <div class="item-icon">
+                            <ion-icon name="person-outline"></ion-icon>
+                        </div>
+                        <span class="item-text">Profile</span>
+                    </a>
+                </li>
+                <li class="item">
+                    <a href="#" class="item-link" onclick="changeContent('info')">
+                        <div class="item-icon">
+                            <ion-icon name="information-circle-outline"></ion-icon>
+                        </div>
+                        <span class="item-text">Info</span>
+                    </a>
+                </li>
+            </ul>
+        </div>      
+    </nav>
+    <div id="content">
+        <img src="ISIMG-707039.JPG" id="my-img" class="alternative">
+        <h1>Salvatore Di Marzo</h1>
+        <h2>La mia passione per la sicurezza informatica è il motore che alimenta la protezione nel mondo digitale</h2>       
+    </div>
+    <script>
+        const list = document.querySelectorAll(".item");
+        list.forEach((item) => {
+            item.addEventListener("click", () => {
+                list.forEach((item) => item.classList.remove("active"));
+                item.classList.add("active");
+            });
+        });
+    </script>
+    <script>
+        function changeContent(page){
+            const contentDiv = document.getElementById('content');
+            switch(page){
+                case 'home':
+                    contentDiv.innerHTML = '<img src=ISIMG-707039.JPG" id=\"my-img\" class=\"alternative\">' +
+                       '<h1>Salvatore Di Marzo</h1>'+'<h2>La mia passione per la sicurezza informatica è il motore che alimenta la protezione nel mondo digitale</h2>';
+                    break;
+                case 'profile':
+                    contentDiv.innerHTML='<img src=\"anonimo.jpg"id=\"img-mask\">'+
+                    "<h2 id='one'>4) Certificate ST(STMicroelectronics) 'Scheda NucleoF401RE'.</h2>"+
+                    '<h2 id="one-1">Durante il corso, ho studiato i componenti di un microcontrollore e come programmarli.</h2>'+
+                    '<h2 id="dos">3) Udemy Certificate "Ethical Hacker" Instructors: Zaid Sabih, zSecurity; 12/11/2023.</h2>'+
+                    '<h2 id="tres">2) Alison Diploma "Cybersecurity" 9th August 2023.</h2>'+
+                    '<h2 id="tres-1">Con il passare del tempo, grazie a un corso, ho conseguito un diploma specifico e ho iniziato a esercitarmi nel campo del bug bounty.</h2>'+
+                    '<h2 id="quatro">1) Alison Certificate "c++ Programming Language" 21st October 2022.</h2>'+
+                    '<h2 id="quatro-1">La mia carriera ha avuto inizio studiando questo "giocattolino" chiamato C++.</h2>'; 
+                    break;
+                case 'info':
+                    contentDiv.innerHTML='<img src=\"ISIMG-701250.JPG"id=\"img-cyber\">'+'<h1 id="phrase-info">Informazioni di contatto</h1>'+
+                    '<h2 id="email">Email: dimarzosalvatore84@gmail.com</h2>'+'<h3 id="byte">In ogni byte, una sfida; in ogni firewall, la mia dedizione alla sicurezza informatica</h3>';
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>
